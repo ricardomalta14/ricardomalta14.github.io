@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ricardo Rodrigues Malta — Pesquisador | Amazônia, Educação Ambiental e Saberes Ancestrais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16211D;
+    --ink-soft:rgba(237,230,211,0.72);
+    --ink-faint:rgba(237,230,211,0.45);
+    --paper:#EDE6D3;
+    --paper-dim:#E2D9C2;
+    --paper-line:rgba(22,33,29,0.14);
+    --accent:#A63A2E;
+    --river:#6C8B81;
+    --gold:#C79A45;
+    --maxw: 42rem;
+    --wide: 60rem;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Literata', Georgia, serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:600;
+    line-height:1.12;
+    margin:0;
+  }
+  ::selection{ background:var(--accent); color:var(--paper); }
+
+  /* ---------- layout shells ---------- */
+  .wrap{ max-width:var(--wide); margin:0 auto; padding:0 1.75rem; }
+  .col{ max-width:var(--maxw); }
+  section{ padding:5.5rem 0; border-top:1px solid rgba(237,230,211,0.1); }
+  section:first-of-type{ border-top:none; }
+
+  /* ---------- nav ---------- */
+  header.site{
+    position:sticky; top:0; z-index:20;
+    background:rgba(22,33,29,0.86);
+    backdrop-filter: blur(6px);
+    border-bottom:1px solid rgba(237,230,211,0.12);
+  }
+  .navrow{
+    max-width:var(--wide); margin:0 auto; padding:0 1.75rem;
+    display:flex; align-items:center; justify-content:space-between;
+    height:3.6rem;
+  }
+  .navrow .brand{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.02rem;
+    letter-spacing:0.01em;
+  }
+  .navlinks{ display:flex; gap:1.6rem; font-size:0.92rem; }
+  .navlinks a{ text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s; }
+  .navlinks a:hover{ color:var(--paper); border-color:var(--accent); }
+  @media (max-width:640px){ .navlinks{ gap:1rem; font-size:0.82rem; } }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:6.5rem 0 5rem;
+    overflow:hidden;
+  }
+  .river-line{
+    position:absolute; right:-8%; top:0; width:70%; height:100%;
+    opacity:0.55; pointer-events:none;
+  }
+  .eyebrow{
+    color:var(--river); font-size:0.95rem; font-style:italic;
+    font-family:'Fraunces', serif; margin-bottom:1.1rem;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 5vw, 3.4rem);
+    max-width:16ch;
+    color:var(--paper);
+  }
+  .hero h1 em{ color:var(--gold); font-style:italic; font-weight:500; }
+  .hero p.lede{
+    margin-top:1.6rem; max-width:38rem; color:var(--ink-soft); font-size:1.08rem;
+  }
+  .hero-links{ margin-top:2.2rem; display:flex; flex-wrap:wrap; gap:0.9rem 1.6rem; }
+  .hero-links a{
+    text-decoration:none; font-size:0.95rem; color:var(--paper);
+    border-bottom:1px solid var(--river); padding-bottom:2px;
+  }
+  .hero-links a:hover{ border-color:var(--accent); color:var(--gold); }
+
+  /* ---------- section headers ---------- */
+  .sec-head{ margin-bottom:2.6rem; }
+  .sec-head .kicker{
+    font-family:'Fraunces', serif; font-style:italic; color:var(--river);
+    font-size:0.98rem; margin-bottom:0.5rem; display:block;
+  }
+  .sec-head h2{ font-size:clamp(1.7rem,3vw,2.2rem); color:var(--paper); }
+  .sec-head p{ color:var(--ink-soft); margin-top:0.9rem; max-width:40rem; }
+
+  /* ---------- cards / entries ---------- */
+  .entry{
+    padding:1.6rem 0; border-top:1px solid var(--paper-line);
+    display:grid; grid-template-columns:8rem 1fr; gap:1.5rem;
+  }
+  .entry:last-child{ border-bottom:1px solid var(--paper-line); }
+  .entry .when{ color:var(--river); font-size:0.88rem; padding-top:0.15rem; }
+  .entry h3{ font-size:1.14rem; color:var(--paper); font-weight:600; }
+  .entry .meta{ color:var(--gold); font-size:0.88rem; margin-top:0.25rem; font-family:'Fraunces',serif; font-style:italic; }
+  .entry p{ color:var(--ink-soft); margin-top:0.55rem; font-size:0.98rem; }
+  .entry a.doclink{
+    display:inline-block; margin-top:0.6rem; font-size:0.9rem;
+    color:var(--paper); border-bottom:1px solid var(--accent); text-decoration:none;
+  }
+  .entry a.doclink:hover{ color:var(--gold); }
+  @media (max-width:640px){
+    .entry{ grid-template-columns:1fr; gap:0.3rem; }
+  }
+
+  /* ---------- placeholder / gap markers ---------- */
+  .gap{
+    border:1px dashed rgba(237,230,211,0.35);
+    border-radius:2px;
+    padding:1.1rem 1.3rem;
+    margin-top:0.9rem;
+    color:var(--ink-faint);
+    font-size:0.92rem;
+    font-family:'Literata', serif;
+  }
+  .gap .tag{
+    display:inline-block; font-family:'Fraunces',serif; font-style:italic;
+    color:var(--accent); margin-bottom:0.35rem; font-size:0.85rem;
+  }
+  .gap ul{ margin:0.4rem 0 0; padding-left:1.1rem; }
+  .gap li{ margin-bottom:0.2rem; }
+
+  /* ---------- subgroup label ---------- */
+  .subhead{
+    font-family:'Fraunces', serif; font-style:italic; color:var(--river);
+    font-size:1.05rem; margin:2.6rem 0 0.4rem;
+  }
+  .subhead:first-of-type{ margin-top:0; }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:3.5rem 0 3rem; border-top:1px solid rgba(237,230,211,0.12);
+    color:var(--ink-faint); font-size:0.9rem;
+  }
+  footer .flinks{ display:flex; flex-wrap:wrap; gap:1.4rem; margin-top:0.9rem; }
+  footer a{ color:var(--ink-soft); text-decoration:none; border-bottom:1px solid transparent; }
+  footer a:hover{ color:var(--paper); border-color:var(--river); }
+
+  .quiet-note{
+    font-size:0.85rem; color:var(--ink-faint); margin-top:0.5rem; font-style:italic;
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="navrow">
+    <div class="brand">Ricardo Rodrigues Malta</div>
+    <nav class="navlinks">
+      <a href="#trajetoria">Trajetória científica</a>
+      <a href="#divulgacao">Divulgação</a>
+      <a href="#percurso">Percurso profissional</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="river-line" viewBox="0 0 600 500" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M 600 0 C 480 60, 520 140, 420 190 C 320 240, 380 300, 300 340 C 220 380, 260 440, 160 470 C 90 490, 60 470, 0 500"
+          fill="none" stroke="#6C8B81" stroke-width="1.4"/>
+    <path d="M 600 40 C 500 90, 530 170, 440 220 C 350 270, 400 320, 330 360"
+          fill="none" stroke="#C79A45" stroke-width="1" opacity="0.6"/>
+  </svg>
+  <div class="wrap">
+    <span class="eyebrow">Economista e Doutor em Geografia (UERJ) — 20+ anos em socioambiental</span>
+    <h1>Ricardo Rodrigues Malta, pesquisando os <em>encantados</em> dos rios amazônicos.</h1>
+    <p class="lede">
+      Economista de formação, com mais de 20 anos de atuação em licenciamento ambiental e
+      diagnósticos socioeconômicos junto a comunidades tradicionais, e Doutor em Geografia pela
+      UERJ. Hoje, no pós-doutorado, investigo — a partir de pesquisa de campo em Nhamundá-AM —
+      como narrativas orais sobre seres encantados funcionam como códigos de preservação ambiental,
+      e como esse conhecimento pode fortalecer a educação ambiental nas escolas públicas da região.
+    </p>
+    <div class="hero-links">
+      <a href="#trajetoria">Ver produção científica ↓</a>
+      <a href="#divulgacao">Entrevistas e divulgação ↓</a>
+      <a href="mailto:ricardorodriguesmalta@gmail.com">ricardorodriguesmalta@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= TRAJETÓRIA CIENTÍFICA ======================= -->
+<section id="trajetoria">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Parte 1</span>
+      <h2>Trajetória científica</h2>
+      <p>Da dissertação de mestrado (2008) ao pós-doutorado em andamento — uma trajetória acadêmica
+      construída em torno de dois territórios: o Parque Nacional da Tijuca e, mais recentemente, a
+      Amazônia cabocla-ribeirinha de Nhamundá-AM.</p>
+    </div>
+
+    <div class="subhead">Formação acadêmica</div>
+
+    <div class="entry">
+      <div class="when">2025 · em andamento</div>
+      <div>
+        <h3>Saberes ancestrais da cultura cabocla-ribeirinha: diferentes valores e significados da natureza amazônica – Nhamundá-AM</h3>
+        <div class="meta">Pós-doutorado · Programa de Pós-Graduação em Geografia · UERJ</div>
+        <p>Pesquisa sobre saberes ancestrais da cultura cabocla-ribeirinha e práticas de benzedeiras e
+        curandeiros em Nhamundá-AM, valorizando conhecimentos tradicionais na relação com a natureza
+        amazônica. É a pesquisa-guarda-chuva que já gerou o trabalho publicado no GeoCorpo e o artigo
+        em preparação sobre educação ambiental, listados abaixo.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2016</div>
+      <div>
+        <h3>A significância religiosa do Parque Nacional da Tijuca: as paisagens valorizadas pelos usuários religiosos de uma unidade de conservação</h3>
+        <div class="meta">Doutorado (PhD) · Programa de Pós-Graduação em Geografia · UERJ</div>
+        <p>Investiga como diferentes tradições religiosas atribuem significado sagrado às paisagens do
+        Parque Nacional da Tijuca — pesquisa que, dez anos depois, embasou a entrevista dada ao O Globo
+        listada na seção de divulgação.</p>
+        <a class="doclink" href="https://www.bdtd.uerj.br:8443/handle/1/13239" target="_blank" rel="noopener">Acessar texto completo →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2008</div>
+      <div>
+        <h3>Valoração econômica dos serviços recreativos e ecoturísticos em unidade de conservação: o caso do Parque Nacional da Tijuca (Rio de Janeiro-RJ)</h3>
+        <div class="meta">Mestrado (M.Sc.) · Programa de Pós-Graduação em Geografia · UERJ</div>
+        <p>Primeiro trabalho acadêmico sobre o Parque Nacional da Tijuca, com foco na valoração
+        econômica dos serviços recreativos e ecoturísticos — ponto de partida de uma linha de
+        pesquisa sobre a mesma unidade de conservação que atravessa toda a trajetória científica.</p>
+        <a class="doclink" href="https://www.bdtd.uerj.br:8443/bitstream/1/13358/1/Pre%20textuais.pdf" target="_blank" rel="noopener">Acessar texto completo →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2005</div>
+      <div>
+        <h3>Duas especializações concluídas em paralelo</h3>
+        <div class="meta">Saúde de Ecossistemas: Planejamento e Gestão de Recursos Hídricos (ENSP/Fiocruz) · Formação Profissional em Ciências Ambientais (UFRJ)</div>
+        <p>Formação complementar em gestão ambiental e de recursos hídricos, base técnica para a
+        atuação profissional em licenciamento e diagnósticos socioambientais.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">1999</div>
+      <div>
+        <h3>Bacharelado em Ciências Econômicas</h3>
+        <div class="meta">Universidade Gama Filho (UGF)</div>
+        <p>Formação de origem, base para a atuação posterior em valoração econômica ambiental e
+        diagnósticos socioeconômicos.</p>
+      </div>
+    </div>
+
+    <div class="subhead">Produções científicas</div>
+
+    <div class="entry">
+      <div class="when">2026 · em preparação</div>
+      <div>
+        <h3>Seres encantados, saberes ribeirinhos: contribuições da oralidade cabocla-ribeirinha de Nhamundá-AM para a educação ambiental na escola pública</h3>
+        <div class="meta">Artigo científico</div>
+        <p>Discute como narrativas orais sobre seres encantados amazônicos funcionam como códigos
+        de preservação ambiental e propõe caminhos de incorporação desses saberes à escola pública
+        de Nhamundá-AM.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2025–2026</div>
+      <div>
+        <h3>Corpo caboclo-ribeirinho e saberes ancestrais: perspectivas decoloniais na Amazônia de Nhamundá-AM</h3>
+        <div class="meta">Anais do II Seminário Interno de Pesquisas GeoCorpo · UERJ · publicado em 30/04/2026</div>
+        <p>Resultados preliminares de pesquisa de campo realizada em julho e agosto de 2025 em Nhamundá-AM,
+        no âmbito de estágio pós-doutoral no Programa de Pós-Graduação em Geografia da UERJ. Documenta,
+        a partir de narrativas de benzedeiras, curandeiros e moradores antigos, como o corpo ribeirinho
+        se constitui como território vivido, em diálogo com a ecologia decolonial.</p>
+        <a class="doclink" href="https://www.even3.com.br/anais/ii-seminario-interno-pesquisas-geocorpo/1429197-corpo-caboclo-ribeirinho-e-saberes-ancestrais--perspectivas-decoloniais-na-amazonia-de-nhamunda-am/" target="_blank" rel="noopener">Acessar trabalho →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2009</div>
+      <div>
+        <h3>Gestão do uso público em unidade de conservação: a visitação no Parque Nacional da Tijuca – RJ</h3>
+        <div class="meta">Malta, R. R.; Costa, N. M. C. · Revista Brasileira de Ecoturismo (RBEcotur), v. 2, n. 3</div>
+        <p>Caracteriza o perfil dos visitantes e analisa os impactos socioambientais da visitação pública
+        na Floresta da Tijuca, um dos setores mais frequentados do Parque Nacional da Tijuca.</p>
+        <a class="doclink" href="https://periodicos.unifesp.br/index.php/ecoturismo/article/view/5860" target="_blank" rel="noopener">Acessar artigo →</a>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2008</div>
+      <div>
+        <h3>O (des)uso público nas unidades de conservação da região metropolitana do Rio de Janeiro (RJ)</h3>
+        <div class="meta">Costa, N. M. C.; Costa, V. C.; Malta, R. R.; Mello, F. A. P. · Revista OLAM – Ciência &amp; Tecnologia, v. 8, n. 1</div>
+        <p>Discute os desafios do uso público em unidades de conservação da região metropolitana
+        do Rio de Janeiro, a partir da gestão da visitação e dos conflitos entre conservação e uso recreativo.</p>
+        <a class="doclink" href="https://www.periodicos.rc.biblioteca.unesp.br/index.php/olam/article/view/1415" target="_blank" rel="noopener">Acessar artigo →</a>
+      </div>
+    </div>
+
+    <div class="gap">
+      <span class="tag">Espaço reservado — adicione aqui</span>
+      Outros artigos, capítulos de livro ou resumos em anais que ainda não estejam listados acima.
+      <ul>
+        <li>Título, periódico/veículo e ano</li>
+        <li>Link de acesso (DOI, repositório institucional, ou PDF)</li>
+        <li>Um resumo curto de 1–2 frases</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= DIVULGAÇÃO ======================= -->
+<section id="divulgacao">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Parte 2</span>
+      <h2>Divulgação científica</h2>
+      <p>Entrevistas, matérias e conversas com o público em geral — a tradução da pesquisa para fora da academia.</p>
+    </div>
+
+    <div class="entry">
+      <div class="when">ago. 2026</div>
+      <div>
+        <h3>Entrevista para o jornal O Globo: uma floresta da Tijuca "encantada"</h3>
+        <div class="meta">Entrevista concedida em agosto de 2026 · matéria publicada em 30/08/2026</div>
+        <p>Reportagem de uma semana pelo Parque Nacional da Tijuca, mostrando como a floresta se
+        transforma em lugar de conexão com o sagrado para tradições distintas — peregrinos
+        evangélicos no Monte Cardoso Fontes, praticantes de religiões de matriz africana na Curva
+        do S, druidas, terapeutas holísticos, rituais indígenas e o catolicismo do Cristo Redentor.
+        Ricardo Malta é citado na matéria como autor da tese que mapeou os usos religiosos do
+        parque, identificando como diferentes tradições convergem sobre os mesmos pontos da mata.</p>
+        <a class="doclink" href="https://oglobo.globo.com/rio/noticia/2026/08/30/de-monte-de-oracao-dos-evangelicos-aos-rituais-druidas-uma-floresta-da-tijuca-encantada-onde-religiosos-se-conectam-aos-sagrado.ghtml" target="_blank" rel="noopener">Ler a matéria no O Globo →</a>
+      </div>
+    </div>
+
+    <div class="gap">
+      <span class="tag">Espaço reservado — adicione aqui</span>
+      Outras entrevistas, podcasts, palestras públicas, textos de divulgação (ex.: colunas, blogs),
+      participações em documentários ou vídeos.
+      <ul>
+        <li>Veículo, data e link</li>
+        <li>Formato (texto, áudio, vídeo, palestra)</li>
+        <li>Uma frase de contexto</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PERCURSO PROFISSIONAL ======================= -->
+<section id="percurso">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">Parte 3</span>
+      <h2>Percurso profissional</h2>
+      <p>Mais de 20 anos em gestão socioambiental, licenciamento e diagnósticos socioeconômicos —
+      de guia de ecoturismo a especialista social sênior em grandes empreendimentos de energia e mineração.</p>
+    </div>
+
+    <div class="subhead">Experiência profissional</div>
+
+    <div class="entry">
+      <div class="when">2025 · atual</div>
+      <div>
+        <h3>Especialista em Socioeconomia e Meio Ambiente</h3>
+        <div class="meta">Atuação autônoma</div>
+        <p>Consultoria socioambiental para projetos de energia, óleo &amp; gás, infraestrutura e
+        urbanismo, com foco em licenciamento, programas sociais e diagnósticos socioeconômicos.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2023–2025</div>
+      <div>
+        <h3>Especialista Social Sênior</h3>
+        <div class="meta">Tetra Tech Engenharia e Consultoria Ltda. · Rio de Janeiro-RJ</div>
+        <p>Coordenação de diagnósticos socioeconômicos e programas sociais em comunidades
+        tradicionais (pescadores artesanais, agricultores familiares, ribeirinhos e quilombolas).
+        Destaque para o projeto Artemyn, em Ipixuna do Pará-PA, com diagnósticos participativos em
+        comunidades vizinhas a empreendimento minerário.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2022–2023</div>
+      <div>
+        <h3>Coordenador de Meio Ambiente</h3>
+        <div class="meta">Transnorte Energia S.A. (TNE) · Manaus-AM</div>
+        <p>Gestão de equipe socioambiental na Linha de Transmissão 500 kV Manaus–Boa Vista,
+        incluindo coordenação de programas junto às comunidades indígenas Waimiri-Atroari.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2017–2022</div>
+      <div>
+        <h3>Analista Ambiental Sênior e Coordenador de Socioeconomia</h3>
+        <div class="meta">Biodinâmica Engenharia e Meio Ambiente Ltda. · Rio de Janeiro-RJ</div>
+        <p>Coordenação de diagnósticos socioeconômicos em comunidades quilombolas e ribeirinhas
+        (Bahia, Pará, Paraíba, Amazonas, Rondônia), projetos de empreendedorismo com SEBRAE e SENAI,
+        e apresentação de estudos em dezenas de audiências públicas.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">jan.–mai. 2017</div>
+      <div>
+        <h3>Analista Social Sênior</h3>
+        <div class="meta">Rio Energy Serviços Integrados Ltda. · Ourolândia-BA</div>
+        <p>Identificação e resolução de conflitos sociais, acompanhamento de negociações fundiárias e
+        ouvidoria no Complexo Eólico Serra da Babilônia.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2014–2015</div>
+      <div>
+        <h3>Analista Ambiental / Economista</h3>
+        <div class="meta">Ambientare Soluções Ambientais Ltda. · Rio de Janeiro-RJ</div>
+        <p>Diagnósticos socioeconômicos em comunidades ribeirinhas do Amazonas e Pará (Almeirim,
+        Oriximiná, Óbidos, Juruti, Parintins) e em projetos agroextrativistas.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2007–2014</div>
+      <div>
+        <h3>Consultor Ambiental / Economista</h3>
+        <div class="meta">Biodinâmica Engenharia e Meio Ambiente Ltda. · Rio de Janeiro-RJ</div>
+        <p>Primeira passagem pela empresa: dezenas de EIA/RIMA, PBAs e diagnósticos socioeconômicos
+        para linhas de transmissão e usinas em todo o Brasil (CHESF, Mineração Rio do Norte, entre outros).</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2006–2007</div>
+      <div>
+        <h3>Pesquisador de Socioeconomia</h3>
+        <div class="meta">Grupo de Estudos Ambientais (GEA) · UERJ</div>
+        <p>Início da trajetória em pesquisa aplicada ao uso público de unidades de conservação, base
+        para a dissertação de mestrado sobre o Parque Nacional da Tijuca.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2004–2009</div>
+      <div>
+        <h3>Especialista em Economia e Meio Ambiente</h3>
+        <div class="meta">Atuação autônoma</div>
+        <p>Consultoria ambiental de pequeno e médio porte e atuação como guia em atrativos naturais
+        e unidades de conservação — experiência que aproximou diretamente a formação em economia
+        do ecoturismo e do uso público, tema da própria dissertação de mestrado.</p>
+      </div>
+    </div>
+
+    <div class="subhead">Voluntariados</div>
+    <div class="gap">
+      <span class="tag">Espaço reservado — adicione aqui</span>
+      Não encontrei registros de trabalho voluntário nos currículos enviados. Se houver, cada
+      entrada precisa de: nome do projeto/ação, organização parceira, período e uma descrição breve.
+    </div>
+
+    <div class="subhead">Relatórios e diagnósticos elaborados</div>
+    <p class="quiet-note" style="margin-bottom:1.2rem;">Seleção representativa — a lista completa,
+    com dezenas de EIA/RIMA, PBAs e diagnósticos socioeconômicos elaborados desde 2007, está
+    disponível no currículo Lattes e pode ser detalhada sob solicitação.</p>
+
+    <div class="entry">
+      <div class="when">2023–2024</div>
+      <div>
+        <h3>Diagnóstico Socioeconômico Participativo — Mina IRCC</h3>
+        <div class="meta">Artemyn Brasil · Ipixuna do Pará-PA</div>
+        <p>Entrevistas com lideranças e moradores, oficinas participativas em 7 comunidades e
+        atualização dos programas socioeconômicos do Plano de Controle Ambiental da mina.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2023</div>
+      <div>
+        <h3>Análise da Situação Socioeconômica e de Saúde de Barcarena-PA</h3>
+        <div class="meta">Hydro Brasil</div>
+        <p>Levantamento e relatório sobre condições socioeconômicas e de saúde do município,
+        subsidiando o diálogo entre empresa e comunidade.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2023</div>
+      <div>
+        <h3>Avaliação de Risco Social — Complexo de Tubarão e Terminal de Ponta da Madeira</h3>
+        <div class="meta">Vale · Estados do Maranhão e Espírito Santo</div>
+        <p>Levantamento de aspectos e impactos e avaliação de risco social em dois grandes
+        complexos portuários.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2022–2023</div>
+      <div>
+        <h3>Mapeamento de Stakeholders para Crises e Emergências Ambientais</h3>
+        <div class="meta">TotalEnergies · Espírito Santo, Rio de Janeiro, São Paulo, Paraná e Santa Catarina</div>
+        <p>Mapeamento multiestadual de partes interessadas para resposta a emergências ambientais.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2022–2023</div>
+      <div>
+        <h3>Licenciamento Ambiental — LT 500 kV Manaus–Boa Vista</h3>
+        <div class="meta">Transnorte Energia S.A. · Amazonas e Roraima</div>
+        <p>Acompanhamento de condicionantes de licença e programas socioambientais junto às
+        comunidades indígenas Waimiri-Atroari, em articulação com o IBAMA.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2019–2022</div>
+      <div>
+        <h3>SGA da LT Pirapora–Sarzedo–Itabira e subestações associadas</h3>
+        <div class="meta">Mantiqueira Transmissora de Energia S.A. · Minas Gerais</div>
+        <p>Coordenação de ações de Comunicação Social e Educação Ambiental, ouvidoria in loco e
+        mediação de conflitos ao longo de todo o traçado da linha de transmissão.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2017–2019</div>
+      <div>
+        <h3>Estudo de Médio Impacto — LT 500 kV Bom Jesus da Lapa II–Gentio do Ouro II</h3>
+        <div class="meta">Empresa Transmissora Baiana S.A. · Bahia</div>
+        <p>Identificação de Comunidades Remanescentes de Quilombolas, elaboração do Projeto Básico
+        Ambiental Quilombola e condução de reuniões consultivas com as comunidades.</p>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when">2013</div>
+      <div>
+        <h3>EIA/RIMA — LT 500 kV Barreiras II–Rio das Éguas–Luziânia–Pirapora 2</h3>
+        <div class="meta">Paranaíba Transmissora de Energia S.A. · Bahia, Goiás e Minas Gerais</div>
+        <p>Diagnóstico socioeconômico completo, avaliação de impactos e programas ambientais para
+        linha de transmissão de mais de 1000 km.</p>
+      </div>
+    </div>
+
+    <div class="gap">
+      <span class="tag">Espaço reservado — adicione aqui</span>
+      Outros diagnósticos e relatórios relevantes que você queira destacar (ex.: Belo Monte/Norte
+      Energia, EDF Renewables, projetos com povos indígenas ou comunidades ribeirinhas específicas).
+    </div>
+  </div>
+</section>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="col">
+      <h3 style="color:var(--paper); font-size:1.1rem; font-weight:600;">Contato</h3>
+      <div class="flinks">
+        <a href="mailto:ricardorodriguesmalta@gmail.com">E-mail</a>
+        <a href="http://lattes.cnpq.br/1285607813813610" target="_blank" rel="noopener">Lattes</a>
+        <a href="https://www.linkedin.com/in/ricardorodriguesmalta" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">ORCID</a>
+        <a href="#" target="_blank" rel="noopener">ResearchGate</a>
+      </div>
+      <p class="quiet-note">ORCID e ResearchGate ainda não preenchidos — troque o "#" pelo link assim que tiver.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
